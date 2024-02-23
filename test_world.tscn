@@ -13,7 +13,7 @@ position = Vector2(540, 181)
 velocity_slowdown = 20
 SPEED = 100.0
 jump_velocity = 10000
-max_player_horisontal_speed = 1000
+max_speed = null
 gravity = 300
 
 [node name="Node2D" type="Node2D" parent="."]
