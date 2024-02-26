@@ -10,11 +10,12 @@ size = Vector2(128, 128)
 
 [node name="player" parent="." instance=ExtResource("1_yrcci")]
 position = Vector2(540, 181)
-velocity_slowdown = 20
-SPEED = 100.0
-jump_velocity = 10000
-max_speed = null
-gravity = 300
+floor_stop_on_slope = false
+velocity_slowdown = 25
+SPEED = 500.0
+jump_velocity = 300
+max_speed = 1000
+gravity = 400
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(595, 544)

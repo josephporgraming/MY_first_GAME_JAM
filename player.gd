@@ -33,23 +33,23 @@ func _physics_process(delta):
 			velocity.y = 10000
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_up") and is_on_floor():
-		velocity.y += -jump_velocity * delta
+		velocity.y = -jump_velocity
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	direction = Input.get_axis("ui_left", "ui_right")
 	if direction:
-		velocity.x += direction * SPEED
+		velocity.x += (direction * SPEED)
 		if velocity.x >= max_speed:
-			velocity.x  =max_speed
+			velocity.x =max_speed
 		if velocity.x <= -max_speed:
 			velocity.x  = -max_speed
 	else:
-		if velocity.x > 0:
-			velocity.x -= 1
-		if velocity.x < 0:
-			velocity.x += 1
-		elif velocity.x <= 100 and velocity.x => -100:
+		if velocity.x >= 0:
+			velocity.x -= velocity_slowdown
+		if velocity.x <= 0:
+			velocity.x += velocity_slowdown
+		if((velocity.x <= 100 ) or (velocity.x >= -100)):
 			velocity.x = 0
 		
 	
