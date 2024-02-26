@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://pafohdosbpr4"]
+[gd_scene load_steps=5 format=3 uid="uid://pafohdosbpr4"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_3trhx"]
 [ext_resource type="Texture2D" uid="uid://cbahte1f16xcp" path="res://icon.svg" id="2_0jh21"]
+[ext_resource type="Script" path="res://Camra_follow.gd" id="3_rumhm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xaro7"]
 size = Vector2(134, 134)
@@ -17,3 +18,4 @@ shape = SubResource("RectangleShape2D_xaro7")
 texture = ExtResource("2_0jh21")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("3_rumhm")
