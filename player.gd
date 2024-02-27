@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-
+@onready var animated_sprite = get_node("AnimatedSprite2D") 
 @export var velocity_slowdown = 0
 @export var SPEED = 300.0
 @export var jump_velocity = 30
@@ -26,6 +26,7 @@ func decleration():
 			velocity.x = 0
 """
 func _physics_process(delta):
+	$AnimatedSprite2D.flip
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
