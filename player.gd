@@ -45,7 +45,7 @@ func _physics_process(delta):
 			velocity.x =max_speed
 		if velocity.x <= -max_speed:
 			velocity.x  = -max_speed
-	else:
+	if direction == 0 :
 		# slow down 
 		if velocity.x >= 0:
 			velocity.x -= velocity_slowdown
