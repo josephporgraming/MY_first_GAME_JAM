@@ -1,10 +1,11 @@
-extends Camera2D
+extends Area2D
 
-@export  var camra_speed = 10
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	pass # Replace with function body.
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	position += camra_speed
+	pass

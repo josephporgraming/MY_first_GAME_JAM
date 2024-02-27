@@ -39,12 +39,14 @@ func _physics_process(delta):
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	direction = Input.get_axis("ui_left", "ui_right")
 	if direction:
+		#speed up
 		velocity.x += (direction * SPEED)
 		if velocity.x >= max_speed:
 			velocity.x =max_speed
 		if velocity.x <= -max_speed:
 			velocity.x  = -max_speed
 	else:
+		# slow down 
 		if velocity.x >= 0:
 			velocity.x -= velocity_slowdown
 		if velocity.x <= 0:
