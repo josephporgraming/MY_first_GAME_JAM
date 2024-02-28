@@ -9,12 +9,12 @@ size = Vector2(128, 128)
 [node name="test world" type="Node2D"]
 
 [node name="player" parent="." instance=ExtResource("1_yrcci")]
-position = Vector2(540, 181)
+position = Vector2(555, 100)
 floor_stop_on_slope = false
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(595, 544)
-scale = Vector2(10.68, 1)
+scale = Vector2(33.6, 1)
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Node2D"]

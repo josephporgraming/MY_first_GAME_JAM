@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@onready var animated_sprite = get_node("AnimatedSprite2D") 
+@onready var animated_sprite = $AnimatedSprite2D
 @export var velocity_slowdown = 0
 @export var SPEED = 300.0
 @export var jump_velocity = 30
@@ -26,7 +26,6 @@ func decleration():
 			velocity.x = 0
 """
 func _physics_process(delta):
-	$AnimatedSprite2D.flip
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -40,6 +39,12 @@ func _physics_process(delta):
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	direction = Input.get_axis("ui_left", "ui_right")
 	if direction:
+		animated_sprite.play("run")
+		if direction < 0:
+			animated_sprite.flip_h = true
+		if direction > 0:
+			animated_sprite.flip_h = false
+		 
 		#speed up
 		velocity.x += (direction * SPEED)
 		if velocity.x >= max_speed:
@@ -47,10 +52,11 @@ func _physics_process(delta):
 		if velocity.x <= -max_speed:
 			velocity.x  = -max_speed
 	if direction == 0 :
+		animated_sprite.play("main")
 		# slow down 
 		if velocity.x >= 0:
 			velocity.x -= velocity_slowdown
-		if velocity.x <= 0:
+		else:
 			velocity.x += velocity_slowdown
 		if((velocity.x <= 100 ) or (velocity.x >= -100)):
 			velocity.x = 0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://pafohdosbpr4"]
+[gd_scene load_steps=28 format=3 uid="uid://pafohdosbpr4"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_3trhx"]
 [ext_resource type="Texture2D" uid="uid://sddkv0il5kew" path="res://animations/Player_idle animation/frame0000.png" id="2_4q6x5"]
@@ -13,9 +13,21 @@
 [ext_resource type="Texture2D" uid="uid://b0yevuu6wqdq2" path="res://animations/Player_idle animation/frame0009.png" id="11_vw5sr"]
 [ext_resource type="Texture2D" uid="uid://ct6m71ptgpjou" path="res://animations/Player_idle animation/frame0010.png" id="12_iwapo"]
 [ext_resource type="Texture2D" uid="uid://dbxbb1hkhjav3" path="res://animations/Player_idle animation/frame0011.png" id="13_alext"]
+[ext_resource type="Texture2D" uid="uid://xa6jeu0a32tt" path="res://animations/Player_run-animations/frame0000.png" id="14_fabv8"]
+[ext_resource type="Texture2D" uid="uid://quv5n1nwyi40" path="res://animations/Player_run-animations/frame0001.png" id="15_xee1k"]
+[ext_resource type="Texture2D" uid="uid://cc1j0fyhseve5" path="res://animations/Player_run-animations/frame0002.png" id="16_d7h14"]
+[ext_resource type="Texture2D" uid="uid://d43dhda2wl8h" path="res://animations/Player_run-animations/frame0003.png" id="17_0qdmu"]
+[ext_resource type="Texture2D" uid="uid://bfuif1q41r4q3" path="res://animations/Player_run-animations/frame0004.png" id="18_a2es8"]
+[ext_resource type="Texture2D" uid="uid://dos2gk32uxxqa" path="res://animations/Player_run-animations/frame0005.png" id="19_8budl"]
+[ext_resource type="Texture2D" uid="uid://dqss1hwf4722g" path="res://animations/Player_run-animations/frame0006.png" id="20_ktml1"]
+[ext_resource type="Texture2D" uid="uid://c6jwuntd2scqx" path="res://animations/Player_run-animations/frame0007.png" id="21_3yl2d"]
+[ext_resource type="Texture2D" uid="uid://bo5pf2dv1ciap" path="res://animations/Player_run-animations/frame0008.png" id="22_kmwn6"]
+[ext_resource type="Texture2D" uid="uid://b4t8q0m5rrc5g" path="res://animations/Player_run-animations/frame0009.png" id="23_1w7je"]
+[ext_resource type="Texture2D" uid="uid://he2pmvrh462r" path="res://animations/Player_run-animations/frame0010.png" id="24_35cc0"]
+[ext_resource type="Texture2D" uid="uid://d0gsfmlansyuv" path="res://animations/Player_run-animations/frame0011.png" id="25_eldgv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xaro7"]
-size = Vector2(134, 134)
+size = Vector2(299, 584)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_sbb4d"]
 animations = [{
@@ -56,21 +68,63 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("13_alext")
 }],
-"loop": true,
-"name": &"idle ",
-"speed": 5.0
+"loop": false,
+"name": &"main",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_fabv8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_xee1k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_d7h14")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_0qdmu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_a2es8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_8budl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_ktml1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_3yl2d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_kmwn6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_1w7je")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_35cc0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_eldgv")
+}],
+"loop": false,
+"name": &"run",
+"speed": 24.0
 }]
 
 [node name="player" type="CharacterBody2D"]
 position = Vector2(0, 17)
 script = ExtResource("1_3trhx")
 velocity_slowdown = 10
-jump_velocity = 400
-max_speed = 1000
-gravity = 500
+SPEED = 500.0
+jump_velocity = 800
+max_speed = 2000
+gravity = 1500
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1)
+position = Vector2(-5.5, 66)
 shape = SubResource("RectangleShape2D_xaro7")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -82,4 +136,4 @@ editor_draw_limits = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_sbb4d")
-animation = &"idle "
+animation = &"main"
